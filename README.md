@@ -6,4 +6,4 @@ code is created using [aiogram](https://aiogram.dev/) - bot functionality, [soun
 
 you can freely clone this repository and use it for your chat bot, just put your TOKEN into TOKEN variable in the bot.py file. compile bot.py to turn bot on.
 
-![gust logo](https://github.com/trxntxr/gust/blob/master/gustRESULTBIG.png)
+![gust logo](https://github.com/trxntxr/gust/blob/master/gust.png)
