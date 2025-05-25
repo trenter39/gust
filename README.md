@@ -9,4 +9,6 @@ pip install -r requirements.txt
 
 you can freely clone this repository and use it for your chat bot, just put your TOKEN into TOKEN variable in the bot.py file. compile bot.py to turn bot on.
 
-![gust logo](https://github.com/trxntxr/gust/blob/master/gust.png)
+![gust logo](https://github.com/trenter39/gust/blob/master/gust.png)
+
+![gust preview](https://github.com/trenter39/gust/blob/master/preview.png)
