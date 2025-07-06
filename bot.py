@@ -3,7 +3,7 @@ import asyncio, requests, os, logging
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import CommandStart, Command
 from sclib import SoundcloudAPI, Track
-from pytube import YouTube
+from pytubefix import YouTube
 from io import BytesIO 
 
 from dotenv import find_dotenv, load_dotenv
@@ -26,6 +26,7 @@ async def downloadMusicYouTube(message: types.Message):
         title = yt.title
         artist = yt.author
         thumb = yt.thumbnail_url
+        duration = yt.length
         stream = yt.streams.get_by_itag('251')
         await bot.edit_message_text(chat_id=download_message.chat.id, message_id=download_message.message_id, text="Fetching track...")
         file_bytes = BytesIO()
@@ -40,6 +41,7 @@ async def downloadMusicYouTube(message: types.Message):
                 'chat_id': message.chat.id,
                 'title': title,
                 'performer': artist,
+                'duration': duration,
                 'caption': f"<a href='{thumb}'>Cover</a>\n{artist} - {title}\n@gustmusicbot",
                 'parse_mode': "HTML",
                 'reply_to_message_id': message.message_id
@@ -85,7 +87,6 @@ async def downloadMusicSoundCloud(message: types.Message):
             await bot.delete_message(chat_id=download_message.chat.id, message_id=download_message.message_id)
     except Exception as e:
         await message.reply(f"Failed to download track from SoundCloud or queue is currently full.")
-            
 
 @dp.message(CommandStart())
 async def startMessage(message: types.Message):
